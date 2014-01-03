@@ -1,0 +1,12 @@
+font-size(size)
+  rem = unit(size) in ("rem" "")
+  px  = unit(size) is "px"
+
+  if rem
+    font-size: unit(size * 10, "px")
+    font-size: unit(size, "rem")
+  else if px
+    font-size: size
+    font-size: unit(size / 10, "rem")
+  else
+    font-size: size

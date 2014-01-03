@@ -1,0 +1,22 @@
+#font-size-rem {
+  font-size: 40px;
+  font-size: 4rem;
+}
+
+#font-size-rem-implied {
+  font-size: 35px;
+  font-size: 3.5rem;
+}
+
+#font-size-px {
+  font-size: 20px;
+  font-size: 2rem;
+}
+
+#font-size-em {
+  font-size: 1.5em;
+}
+
+#font-size-percent {
+  font-size: 42%;
+}

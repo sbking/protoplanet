@@ -1,0 +1,29 @@
+{
+  // Enforcing
+  "immed": true,
+  "indent": 2,
+  "latedef": true,
+  "newcap": true,
+  "nonew": true,
+  "quotmark": "double",
+  "trailing": true,
+
+  // Relaxing
+  "globalstrict": true,
+
+  // Environments
+  "jquery": true,
+
+  // Custom Globals
+  "globals": {
+    "_": false,
+    "Meteor": false,
+    "Template": false,
+    "UI": false,
+    "EJSON": false,
+    "Npm": false,
+    "Package": false,
+    "Tinytest": false,
+    "process": false
+  }
+}
