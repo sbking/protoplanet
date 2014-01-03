@@ -22,5 +22,7 @@ Package.on_test(function(api) {
     api.add_files(glob.sync("styles/**/*.styl"), "client");
     api.add_files(glob.sync("tests/styles/**/*.@(styl|css)"), "client");
     api.add_files(glob.sync("tests/**/*.js"), "server");
+  } else {
+    console.log("Updating NPM dependencies. Meteor may crash. Re-run the test-packages command.");
   }
 });
