@@ -1,0 +1,26 @@
+$media-range-small = 0 40em;
+$media-range-medium = 40.063em 64em;
+$media-range-large = 64.063em 90em;
+$media-range-xlarge = 90.063em 120em;
+$media-range-xxlarge = 120.063em null;
+
+$media-query(min = null, max = null) {
+  query = "only screen";
+  if (not min in (null 0)) {
+    query += " and (min-width: " + min + ")";
+  }  
+  if (max isnt null) {
+    query += " and (max-width: " + max + ")";
+  }
+  return query
+}
+
+media(device, include = only) {
+  range = $media-range- + device;
+  min = include is down ? null : range[0];
+  max = include is up ? null : range[1];
+  query = $media-query(min, max);
+  @media query {
+    {block}
+  }
+}
