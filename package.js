@@ -5,7 +5,7 @@ Package.describe({
 });
 
 Package.on_use(function(api) {
-  api.imply("stylus");
+  api.imply("stylus-latest");
 });
 
 Package.on_test(function(api) {

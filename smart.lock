@@ -1,0 +1,20 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "protoplanet": {
+        "path": "."
+      }
+    },
+    "packages": {
+      "protoplanet": {
+        "path": "."
+      },
+      "stylus-latest": {
+        "git": "https://github.com/sbking/meteor-stylus-latest.git",
+        "tag": "v0.41.3",
+        "commit": "74e367a382d164ac6dfa499abe7661206049c6de"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "protoplanet",
+  "description": "Stylus UI framework for Meteor",
+  "homepage": "https://github.com/sbking/protoplanet",
+  "author": "Stephen King",
+  "version": "0.0.1",
+  "git": "https://github.com/sbking/protoplanet.git",
+  "packages": {
+    "stylus-latest": "0.41.3"
+  }
+}
