@@ -9,7 +9,6 @@ Package.on_use(function(api) {
 });
 
 Package.on_test(function(api) {
-
   Npm.depends({
     "css": "1.6.0",
     "diff": "1.0.8",

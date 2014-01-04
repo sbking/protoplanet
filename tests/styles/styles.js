@@ -8,7 +8,7 @@ var fs = Npm.require("fs"),
   normalizeCss, styleTests;
 
 // Move to generated CSS dir
-process.chdir(path.join("..", "client", "packages", "protoplanet", "tests", "styles"));
+process.chdir("../client/packages/protoplanet/tests/styles");
 
 // Read, parse, and stringify a CSS file, to ignore insignficant differences
 normalizeCss = function(filePath) {
