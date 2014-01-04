@@ -36,8 +36,8 @@ _.each(styleTests, function(styleTest) {
       if (diff.added || diff.removed) {
         test.fail({
           type: "CSS",
-          expected: diff.added ? diff.value : undefined,
-          unexpected: diff.removed ? diff.value : undefined
+          unexpected: diff.added ? diff.value : undefined,
+          expected: diff.removed ? diff.value : undefined
         });
       } else {
         test.ok({
