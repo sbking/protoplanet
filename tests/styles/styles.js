@@ -2,9 +2,9 @@
 
 var fs = Npm.require("fs"),
   path = Npm.require("path"),
-  globSync = Npm.require("glob").sync,
+  glob = Npm.require("glob"),
   css = Npm.require("css"),
-  diffCss = Npm.require("diff").diffCss,
+  diff = Npm.require("diff"),
   normalizeCss, styleTests;
 
 // Move to generated CSS dir
@@ -19,18 +19,18 @@ normalizeCss = function(filePath) {
 };
 
 // Recursive list of all CSS file paths, with extensions removed
-styleTests = _.uniq(_.map(globSync("**/*.css"), function(filePath) {
+styleTests = _.uniq(_.map(glob.sync("**/*.css"), function(filePath) {
   return filePath.replace(/(\.styl)?\.css$/, "");
 }), true);
 
 // Add a test for each pair of compiled Stylus and expected CSS files
 _.each(styleTests, function(styleTest) {
-  var testName = "Protoplanet - styles - " + styleTest.replace(path.sep, " - ");
+  var testName = "protoplanet - styles - " + styleTest.replace(path.sep, " - ");
 
   Tinytest.add(testName, function(test) {
     var expectedCss = normalizeCss(styleTest + ".css"),
       actualCss = normalizeCss(styleTest + ".styl.css"),
-      diffs = diffCss(expectedCss, actualCss);
+      diffs = diff.diffCss(expectedCss, actualCss);
 
     _.each(diffs, function(diff) {
       if (diff.added || diff.removed) {
