@@ -1,0 +1,25 @@
+// Calculate dpi resolution from dppx or pixel ratio
+to-dpi(resolution) {
+  if (! resolution) {
+    return null;
+  } else if (unit(resolution) == "dpi") {
+    return resolution;
+  } else if (unit(resolution) == "dppx" || match("^[\.0-9]+$", "" + resolution)) {
+    return unit(floor(resolution * 9600) / 100, "dpi");
+  } else {
+    error("Cannot convert to dpi: " + resolution);
+  }
+}
+
+// Calculate em from px or number
+to-em(length) {
+  if (! length) {
+    return null;
+  } else if (unit(length) == "em") {
+    return length;
+  } else if (unit(length) in ("px" "")) {
+    return unit(length / 10, "em");
+  } else {
+    error("Cannot convert to em: " + length);
+  }
+}
