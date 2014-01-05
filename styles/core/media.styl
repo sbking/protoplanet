@@ -1,25 +1,25 @@
-$media-range-small = 0 40em;
-$media-range-medium = 40.063em 64em;
-$media-range-large = 64.063em 90em;
-$media-range-xlarge = 90.063em 120em;
-$media-range-xxlarge = 120.063em null;
+media-ranges = {
+  xxsmall: 0 32.0em,
+  xsmall: 32.1em 64.0em,
+  small: 64.1em 76.8em,
+  medium: 76.9em 102.4em,
+  large: 102.5em 144.0em,
+  xlarge: 144.1em 192.0em,
+  xxlarge: 192.1em null
+};
 
-$media-query(min = null, max = null) {
+media-query(min = null, max = null) {
   query = "only screen";
-  if (not min in (null 0)) {
-    query += " and (min-width: " + min + ")";
-  }  
-  if (max isnt null) {
-    query += " and (max-width: " + max + ")";
-  }
+  query += min ? " and (min-width: " + min + ")" : "";
+  query += max ? " and (max-width: " + max + ")" : "";
   return query
 }
 
 media(device, include = only) {
-  range = $media-range- + device;
+  range = media-ranges["" + device];
   min = include is down ? null : range[0];
   max = include is up ? null : range[1];
-  query = $media-query(min, max);
+  query = media-query(min, max);
   @media query {
     {block}
   }

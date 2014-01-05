@@ -1,19 +1,27 @@
-@media only screen and (max-width: 40em) {}
+@media only screen and (max-width: 32em) {}
 @media only screen {}
-@media only screen and (max-width: 40em) {}
+@media only screen and (max-width: 32em) {}
 
-@media only screen and (min-width: 40.063em) and (max-width: 64em) {}
-@media only screen and (min-width: 40.063em) {}
+@media only screen and (min-width: 32.1em) and (max-width: 64em) {}
+@media only screen and (min-width: 32.1em) {}
 @media only screen and (max-width: 64em) {}
 
-@media only screen and (min-width: 64.063em) and (max-width: 90em) {}
-@media only screen and (min-width: 64.063em) {}
-@media only screen and (max-width: 90em) {}
+@media only screen and (min-width: 64.1em) and (max-width: 76.8em) {}
+@media only screen and (min-width: 64.1em) {}
+@media only screen and (max-width: 76.8em) {}
 
-@media only screen and (min-width: 90.063em) and (max-width: 120em) {}
-@media only screen and (min-width: 90.063em) {}
-@media only screen and (max-width: 120em) {}
+@media only screen and (min-width: 76.9em) and (max-width: 102.4em) {}
+@media only screen and (min-width: 76.9em) {}
+@media only screen and (max-width: 102.4em) {}
 
-@media only screen and (min-width: 120.063em) {}
-@media only screen and (min-width: 120.063em) {}
+@media only screen and (min-width: 102.5em) and (max-width: 144em) {}
+@media only screen and (min-width: 102.5em) {}
+@media only screen and (max-width: 144em) {}
+
+@media only screen and (min-width: 144.1em) and (max-width: 192em) {}
+@media only screen and (min-width: 144.1em) {}
+@media only screen and (max-width: 192em) {}
+
+@media only screen and (min-width: 192.1em) {}
+@media only screen and (min-width: 192.1em) {}
 @media only screen {}
