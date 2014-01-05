@@ -8,18 +8,29 @@ media-ranges = {
   xxlarge: 192.1em null
 };
 
-media-query(min = null, max = null) {
+media-query(min-width = null, max-width = null, orientation = null, pixel-ratio = null) {
   query = "only screen";
-  query += min ? " and (min-width: " + min + ")" : "";
-  query += max ? " and (max-width: " + max + ")" : "";
-  return query
+  query += " and (min-width: " + min-width + ")" if min-width;
+  query += " and (max-width: " + max-width + ")" if max-width;
+  query += " and (orientation: " + orientation + ")" if orientation;
+
+  if (pixel-ratio) {
+    ratio-clause = " and (-webkit-min-device-pixel-ratio: " + pixel-ratio + ")";
+    resolution-clause = " and (min-resolution: " + floor(pixel-ratio * 96dpi) + ")";
+    query += ratio-clause + ", " + query + resolution-clause;
+  }
+
+  return query;
 }
 
-media(device, include = only) {
+media(device, include = only, orientation = null, pixel-ratio = null) {
   range = media-ranges["" + device];
-  min = include is down ? null : range[0];
-  max = include is up ? null : range[1];
-  query = media-query(min, max);
+  min-width = include == down ? null : range[0];
+  max-width = include == up ? null : range[1];
+  max-width = media-ranges["" + include][1] unless include in (only down up);
+
+  query = media-query(min-width, max-width, orientation, pixel-ratio);
+
   @media query {
     {block}
   }

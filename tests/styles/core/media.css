@@ -1,27 +1,51 @@
+/* Device: xxsmall */
 @media only screen and (max-width: 32em) {}
 @media only screen {}
 @media only screen and (max-width: 32em) {}
 
+/* Device: xsmall */
 @media only screen and (min-width: 32.1em) and (max-width: 64em) {}
 @media only screen and (min-width: 32.1em) {}
 @media only screen and (max-width: 64em) {}
 
+/* Device: small */
 @media only screen and (min-width: 64.1em) and (max-width: 76.8em) {}
 @media only screen and (min-width: 64.1em) {}
 @media only screen and (max-width: 76.8em) {}
 
+/* Device: medium */
 @media only screen and (min-width: 76.9em) and (max-width: 102.4em) {}
 @media only screen and (min-width: 76.9em) {}
 @media only screen and (max-width: 102.4em) {}
 
+/* Device: large */
 @media only screen and (min-width: 102.5em) and (max-width: 144em) {}
 @media only screen and (min-width: 102.5em) {}
 @media only screen and (max-width: 144em) {}
 
+/* Device: xlarge */
 @media only screen and (min-width: 144.1em) and (max-width: 192em) {}
 @media only screen and (min-width: 144.1em) {}
 @media only screen and (max-width: 192em) {}
 
+/* Device: xxlarge */
 @media only screen and (min-width: 192.1em) {}
 @media only screen and (min-width: 192.1em) {}
 @media only screen {}
+
+/* Range of devices */
+@media only screen and (min-width: 64.1em) and (max-width: 144em) {}
+@media only screen and (max-width: 144em) {}
+@media only screen and (min-width: 64.1em) {}
+@media only screen {}
+
+/* Orientation */
+@media only screen and (orientation: portrait) {}
+@media only screen and (orientation: landscape) {}
+@media only screen and (min-width: 64.1em) and (max-width: 76.8em) and (orientation: portrait) {}
+@media only screen and (min-width: 76.9em) and (orientation: landscape) {}
+
+/* Pixel-Ratio */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {}
+@media only screen and (min-width: 32.1em) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 32.1em) and (min-resolution: 144dpi) {}
+@media only screen and (min-width: 64.1em) and (max-width: 144em) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min-width: 64.1em) and (max-width: 144em) and (orientation: landscape) and (min-resolution: 120dpi) {}

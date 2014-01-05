@@ -15,7 +15,9 @@ normalizeCss = function(filePath) {
   var file = fs.readFileSync(filePath, {
     encoding: "utf8"
   });
-  return css.stringify(css.parse(file));
+  return css.stringify(css.parse(file), {
+    compress: true
+  });
 };
 
 // Recursive list of all CSS file paths, with extensions removed
