@@ -1,0 +1,72 @@
+@import "../../../styles/protoplanet";
+
+// Default
++screen() {}
+
+// Range - xxsmall
++screen(xxsmall) {}
++screen(xxsmall, up) {}
++screen(xxsmall, down) {}
+
+// Range - xsmall
++screen(xsmall) {}
++screen(xsmall, up) {}
++screen(xsmall, down) {}
+
+// Range - small
++screen(small) {}
++screen(small, up) {}
++screen(small, down) {}
+
+// Range - medium
++screen(medium) {}
++screen(medium, up) {}
++screen(medium, down) {}
+
+// Range - large
++screen(large) {}
++screen(large, up) {}
++screen(large, down) {}
+
+// Range - xlarge
++screen(xlarge) {}
++screen(xlarge, up) {}
++screen(xlarge, down) {}
+
+// Range - xxlarge
++screen(xxlarge) {}
++screen(xxlarge, up) {}
++screen(xxlarge, down) {}
+
+// Range - min, max
++screen(small, large) {}
++screen(small, xxlarge) {}
++screen(xxsmall, large) {}
++screen(xxsmall, xxlarge) {}
+
+// Custom range
++screen(0 767px) {}
++screen(0, 767px) {}
++screen(768px null) {}
++screen(768) {}
++screen(500px 1000px) {}
++screen(500px, 1000px) {}
+
+// Custom named range
+screen-ranges.over9000 = (9000px null);
++screen(over9000) {}
+
+// Orientation
++screen(orientation: portrait) {}
++screen(small, orientation: landscape) {}
++screen(small, only, portrait) {}
++screen(medium, up, landscape) {}
+
+// Resolution - min
++screen(resolution: 2) {}
++screen(xsmall, up, resolution: 144dpi) {}
++screen(small, large, landscape, 1.25) {}
+
+// Resolution - range
++screen(resolution: null 96dpi) {}
++screen(resolution: 1.3dppx 1.5dppx) {}

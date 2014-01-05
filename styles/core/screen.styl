@@ -1,0 +1,89 @@
+screen-ranges = {
+  xxsmall: 0       32.0em,
+  xsmall:  32.1em  64.0em,
+  small:   64.1em  76.8em,
+  medium:  76.9em  102.4em,
+  large:   102.5em 144.0em,
+  xlarge:  144.1em 192.0em,
+  xxlarge: 192.1em null
+};
+
+// Block mixin for screen media queries
+screen(range = null, modifier = "only", orientation = null, resolution = null) {
+  min-width = null;
+  max-width = null;
+  min-resolution = null;
+  max-resolution = null;
+
+  // Valid range values: falsy, pair of units, screen-ranges key, unit
+  if (! range) {
+    // Do nothing
+  } else if (length(range) == 2) {
+    min-width = to-em(range[0]);
+    max-width = to-em(range[1]);
+  } else if (range in screen-ranges) {
+    named-range = screen-ranges["" + range];
+    min-width = to-em(named-range[0]);
+    max-width = to-em(named-range[1]);
+  } else if (range is a "unit") {
+    min-width = to-em(range);
+  } else {
+    error("Invalid value specified for range: " + range);
+  }
+
+  // Valid modifier values: falsy, "only", "up", "down", screen-ranges key, unit
+  if (! modifier || modifier == "only") {
+    // Do nothing
+  } else if (modifier == "up") {
+    max-width = null;
+  } else if (modifier == "down") {
+    min-width = null;
+  } else if (modifier in screen-ranges) {
+    max-width = to-em(screen-ranges["" + modifier][1]);
+  } else if (modifier is a "unit") {
+    max-width = to-em(modifier);
+  } else {
+    error("Invalid value specified for modifier: " + modifier);
+  }
+
+  // Valid orientation values: falsy, "landscape", "portrait"
+  if (! orientation) {
+    // Do nothing
+  } else if (! orientation in ("landscape" "portrait")) {
+    error("Invalid value specified for orientation: " + orientation);
+  }
+
+  // Valid resolution values: falsy, retina, resolution-unit, pair of resolution-units
+  if (! resolution) {
+    // Do nothing
+  } else if (length(resolution) == 2) {
+    min-resolution = to-dpi(resolution[0]);
+    max-resolution = to-dpi(resolution[1]);
+  } else if (resolution is a "unit") {
+    min-resolution = to-dpi(resolution);
+  } else {
+    error("Invalid value specified for resolution: " + resolution);
+  }
+
+  // Build the query string
+  query = "only screen";
+  query = query + " and (min-width: " + min-width + ")" if min-width;
+  query = query + " and (max-width: " + max-width + ")" if max-width;
+  query = query + " and (orientation: " + orientation + ")" if orientation;
+
+  dpi = "";
+  ratio = "";
+  if (min-resolution) {
+    dpi = dpi + " and (min-resolution: " + min-resolution + ")";
+    ratio = ratio + " and (-webkit-min-device-pixel-ratio: " + remove-unit(min-resolution / 96) + ")";
+  }
+  if (max-resolution) {
+    dpi = dpi + " and (max-resolution: " + max-resolution + ")";
+    ratio = ratio + " and (-webkit-max-device-pixel-ratio: " + remove-unit(max-resolution / 96) + ")";
+  }
+  query = query + dpi + ", " + query + ratio if min-resolution || max-resolution;
+
+  @media query {
+    {block}
+  }
+}
