@@ -53,7 +53,7 @@ screen(range = null, modifier = "only", orientation = null, resolution = null) {
     error("Invalid value specified for orientation: " + orientation);
   }
 
-  // Valid resolution values: falsy, retina, resolution-unit, pair of resolution-units
+  // Valid resolution values: falsy, resolution-unit, pair of resolution-units
   if (! resolution) {
     // Do nothing
   } else if (length(resolution) == 2) {
